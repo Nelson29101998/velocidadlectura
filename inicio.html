@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" class="full-height">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+    </style>
+    <title>Velocidad de lectura</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark default-color justify-content-center">
+        <img src="logo/logo.PNG" alt="milogo" id="milogo" width="300">
+    </nav>
+
+    <main>
+        <p>
+        <div class="container d-flex h-100">
+            <div class="row align-self-center w-100">
+                <div class="mx-auto">
+                    <center>
+                        <div class="jumbotron" style="background-color: lightblue;">
+                            <div class="form-group">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label for="numtext" class="col-sm-12 col-form-label"><i
+                                                        class="fas fa-file-alt"></i> Número de palabra de texto:</label>
+                                                <div class="col-sm-6">
+                                                    <input type="number" class="form-control" name="numtext"
+                                                        id="numtext" min="0">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="tiempo" class="col-sm-12 col-form-label"><i
+                                                        class="fas fa-stopwatch"></i> Tiempo empleado en
+                                                    segundos:</label>
+                                                <div class="col-sm-6">
+                                                    <input type="number" class="form-control" name="tiempo" id="tiempo"
+                                                        min="0">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" onclick="totales()"><i
+                                                        class="fas fa-calculator"></i> Calcular de PM</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="limpieza()">Limpiar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </center>
+                </div>
+            </div>
+        </div>
+        </p>
+        <center>
+            <h1 id="total"></h1>
+        </center>
+    </main>
+
+    <footer class="page-footer font-small darken-3" style="background-color: lightblue;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center">
+                        <a href="https://www.youtube.com/channel/UCRbKYp_6ipLtMVYFrmeS5Sg?view_as=subscriber">
+                            <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/nelson.mouatvergara" class="fb-ic">
+                            <i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                        </a>
+
+                        <a href="https://twitter.com/NelsonMouat" class="tw-ic">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/nelson-mouat-vergara-1a7a9a165" class="li-ic">
+                            <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/tinmalulin_7w7" class="ins-ic">
+                            <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">© 2020 Velocidad de lectura:
+            <a href=""> VelocidadLectura.cl</a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function totales() {
+            var numtexto = (document.getElementById("numtext").value || 0);
+            var segundo = (document.getElementById("tiempo").value || 0);
+            var total = 0;
+
+            if (numtexto != "" || segundo != "") {
+                total = (parseFloat(numtexto) / parseFloat(segundo)) * 60;
+                document.getElementById("total").innerHTML = "Total de PM es: " + total + " palabras por minuto";
+            } else {
+                document.getElementById("total").innerHTML = "Total de PM es: " + total + " palabras por minuto";
+            }
+        }
+
+        function limpieza() {
+            document.getElementById("numtext").value = "";
+            document.getElementById("tiempo").value = "";
+            document.getElementById("total").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
